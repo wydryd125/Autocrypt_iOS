@@ -1,0 +1,724 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		099FF38E2C8EEEC60058E568 /* Autocrypt_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FF38D2C8EEEC60058E568 /* Autocrypt_iOSApp.swift */; };
+		099FF3902C8EEEC60058E568 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FF38F2C8EEEC60058E568 /* ContentView.swift */; };
+		099FF3922C8EEEC80058E568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 099FF3912C8EEEC80058E568 /* Assets.xcassets */; };
+		099FF3952C8EEEC80058E568 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 099FF3942C8EEEC80058E568 /* Preview Assets.xcassets */; };
+		099FF39F2C8EEEC80058E568 /* Autocrypt_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FF39E2C8EEEC80058E568 /* Autocrypt_iOSTests.swift */; };
+		099FF3A92C8EEEC80058E568 /* Autocrypt_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FF3A82C8EEEC80058E568 /* Autocrypt_iOSUITests.swift */; };
+		099FF3AB2C8EEEC80058E568 /* Autocrypt_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FF3AA2C8EEEC80058E568 /* Autocrypt_iOSUITestsLaunchTests.swift */; };
+		099FF3B92C8EEF1B0058E568 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 099FF3B82C8EEF1B0058E568 /* RxCocoa */; };
+		099FF3BB2C8EEF1B0058E568 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 099FF3BA2C8EEF1B0058E568 /* RxRelay */; };
+		099FF3BD2C8EEF1B0058E568 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 099FF3BC2C8EEF1B0058E568 /* RxSwift */; };
+		099FF3CD2C8EEF4B0058E568 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FF3BE2C8EEF4B0058E568 /* UIColorExtension.swift */; };
+		099FF3CE2C8EEF4B0058E568 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FF3BF2C8EEF4B0058E568 /* UIFontExtension.swift */; };
+		099FF3D02C8EEF4B0058E568 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FF3C32C8EEF4B0058E568 /* WeatherData.swift */; };
+		099FF3D12C8EEF4B0058E568 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FF3C42C8EEF4B0058E568 /* WeatherViewModel.swift */; };
+		099FF3D22C8EEF4B0058E568 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FF3C62C8EEF4B0058E568 /* BaseView.swift */; };
+		099FF3D32C8EEF4B0058E568 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FF3C72C8EEF4B0058E568 /* BaseViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		099FF39B2C8EEEC80058E568 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 099FF3822C8EEEC60058E568 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 099FF3892C8EEEC60058E568;
+			remoteInfo = Autocrypt_iOS;
+		};
+		099FF3A52C8EEEC80058E568 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 099FF3822C8EEEC60058E568 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 099FF3892C8EEEC60058E568;
+			remoteInfo = Autocrypt_iOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		099FF38A2C8EEEC60058E568 /* Autocrypt_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Autocrypt_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		099FF38D2C8EEEC60058E568 /* Autocrypt_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autocrypt_iOSApp.swift; sourceTree = "<group>"; };
+		099FF38F2C8EEEC60058E568 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		099FF3912C8EEEC80058E568 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		099FF3942C8EEEC80058E568 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		099FF39A2C8EEEC80058E568 /* Autocrypt_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Autocrypt_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		099FF39E2C8EEEC80058E568 /* Autocrypt_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autocrypt_iOSTests.swift; sourceTree = "<group>"; };
+		099FF3A42C8EEEC80058E568 /* Autocrypt_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Autocrypt_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		099FF3A82C8EEEC80058E568 /* Autocrypt_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autocrypt_iOSUITests.swift; sourceTree = "<group>"; };
+		099FF3AA2C8EEEC80058E568 /* Autocrypt_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autocrypt_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		099FF3BE2C8EEF4B0058E568 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		099FF3BF2C8EEF4B0058E568 /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
+		099FF3C32C8EEF4B0058E568 /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		099FF3C42C8EEF4B0058E568 /* WeatherViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		099FF3C62C8EEF4B0058E568 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		099FF3C72C8EEF4B0058E568 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		099FF3872C8EEEC60058E568 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				099FF3BD2C8EEF1B0058E568 /* RxSwift in Frameworks */,
+				099FF3BB2C8EEF1B0058E568 /* RxRelay in Frameworks */,
+				099FF3B92C8EEF1B0058E568 /* RxCocoa in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		099FF3972C8EEEC80058E568 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		099FF3A12C8EEEC80058E568 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		099FF3812C8EEEC60058E568 = {
+			isa = PBXGroup;
+			children = (
+				099FF38C2C8EEEC60058E568 /* Autocrypt_iOS */,
+				099FF39D2C8EEEC80058E568 /* Autocrypt_iOSTests */,
+				099FF3A72C8EEEC80058E568 /* Autocrypt_iOSUITests */,
+				099FF38B2C8EEEC60058E568 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		099FF38B2C8EEEC60058E568 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				099FF38A2C8EEEC60058E568 /* Autocrypt_iOS.app */,
+				099FF39A2C8EEEC80058E568 /* Autocrypt_iOSTests.xctest */,
+				099FF3A42C8EEEC80058E568 /* Autocrypt_iOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		099FF38C2C8EEEC60058E568 /* Autocrypt_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				099FF38D2C8EEEC60058E568 /* Autocrypt_iOSApp.swift */,
+				099FF38F2C8EEEC60058E568 /* ContentView.swift */,
+				099FF3912C8EEEC80058E568 /* Assets.xcassets */,
+				099FF3932C8EEEC80058E568 /* Preview Content */,
+				099FF3D42C8EF0160058E568 /* UIComponent */,
+				099FF3C52C8EEF4B0058E568 /* Model */,
+				099FF3C02C8EEF4B0058E568 /* Support */,
+				099FF3CC2C8EEF4B0058E568 /* UserInterface */,
+			);
+			path = Autocrypt_iOS;
+			sourceTree = "<group>";
+		};
+		099FF3932C8EEEC80058E568 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				099FF3942C8EEEC80058E568 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		099FF39D2C8EEEC80058E568 /* Autocrypt_iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				099FF39E2C8EEEC80058E568 /* Autocrypt_iOSTests.swift */,
+			);
+			path = Autocrypt_iOSTests;
+			sourceTree = "<group>";
+		};
+		099FF3A72C8EEEC80058E568 /* Autocrypt_iOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				099FF3A82C8EEEC80058E568 /* Autocrypt_iOSUITests.swift */,
+				099FF3AA2C8EEEC80058E568 /* Autocrypt_iOSUITestsLaunchTests.swift */,
+			);
+			path = Autocrypt_iOSUITests;
+			sourceTree = "<group>";
+		};
+		099FF3C02C8EEF4B0058E568 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				099FF3BE2C8EEF4B0058E568 /* UIColorExtension.swift */,
+				099FF3BF2C8EEF4B0058E568 /* UIFontExtension.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		099FF3C52C8EEF4B0058E568 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				099FF3C32C8EEF4B0058E568 /* WeatherData.swift */,
+				099FF3C42C8EEF4B0058E568 /* WeatherViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		099FF3C82C8EEF4B0058E568 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				099FF3C62C8EEF4B0058E568 /* BaseView.swift */,
+				099FF3C72C8EEF4B0058E568 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		099FF3C92C8EEF4B0058E568 /* WeatherMain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WeatherMain;
+			sourceTree = "<group>";
+		};
+		099FF3CA2C8EEF4B0058E568 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		099FF3CB2C8EEF4B0058E568 /* WeatherSearch */ = {
+			isa = PBXGroup;
+			children = (
+				099FF3CA2C8EEF4B0058E568 /* Cell */,
+			);
+			path = WeatherSearch;
+			sourceTree = "<group>";
+		};
+		099FF3CC2C8EEF4B0058E568 /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				099FF3C82C8EEF4B0058E568 /* Base */,
+				099FF3C92C8EEF4B0058E568 /* WeatherMain */,
+				099FF3CB2C8EEF4B0058E568 /* WeatherSearch */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		099FF3D42C8EF0160058E568 /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIComponent;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		099FF3892C8EEEC60058E568 /* Autocrypt_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 099FF3AE2C8EEEC80058E568 /* Build configuration list for PBXNativeTarget "Autocrypt_iOS" */;
+			buildPhases = (
+				099FF3862C8EEEC60058E568 /* Sources */,
+				099FF3872C8EEEC60058E568 /* Frameworks */,
+				099FF3882C8EEEC60058E568 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Autocrypt_iOS;
+			packageProductDependencies = (
+				099FF3B82C8EEF1B0058E568 /* RxCocoa */,
+				099FF3BA2C8EEF1B0058E568 /* RxRelay */,
+				099FF3BC2C8EEF1B0058E568 /* RxSwift */,
+			);
+			productName = Autocrypt_iOS;
+			productReference = 099FF38A2C8EEEC60058E568 /* Autocrypt_iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		099FF3992C8EEEC80058E568 /* Autocrypt_iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 099FF3B12C8EEEC80058E568 /* Build configuration list for PBXNativeTarget "Autocrypt_iOSTests" */;
+			buildPhases = (
+				099FF3962C8EEEC80058E568 /* Sources */,
+				099FF3972C8EEEC80058E568 /* Frameworks */,
+				099FF3982C8EEEC80058E568 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				099FF39C2C8EEEC80058E568 /* PBXTargetDependency */,
+			);
+			name = Autocrypt_iOSTests;
+			productName = Autocrypt_iOSTests;
+			productReference = 099FF39A2C8EEEC80058E568 /* Autocrypt_iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		099FF3A32C8EEEC80058E568 /* Autocrypt_iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 099FF3B42C8EEEC80058E568 /* Build configuration list for PBXNativeTarget "Autocrypt_iOSUITests" */;
+			buildPhases = (
+				099FF3A02C8EEEC80058E568 /* Sources */,
+				099FF3A12C8EEEC80058E568 /* Frameworks */,
+				099FF3A22C8EEEC80058E568 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				099FF3A62C8EEEC80058E568 /* PBXTargetDependency */,
+			);
+			name = Autocrypt_iOSUITests;
+			productName = Autocrypt_iOSUITests;
+			productReference = 099FF3A42C8EEEC80058E568 /* Autocrypt_iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		099FF3822C8EEEC60058E568 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					099FF3892C8EEEC60058E568 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					099FF3992C8EEEC80058E568 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 099FF3892C8EEEC60058E568;
+					};
+					099FF3A32C8EEEC80058E568 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 099FF3892C8EEEC60058E568;
+					};
+				};
+			};
+			buildConfigurationList = 099FF3852C8EEEC60058E568 /* Build configuration list for PBXProject "Autocrypt_iOS" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 099FF3812C8EEEC60058E568;
+			packageReferences = (
+				099FF3B72C8EEF1A0058E568 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
+			productRefGroup = 099FF38B2C8EEEC60058E568 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				099FF3892C8EEEC60058E568 /* Autocrypt_iOS */,
+				099FF3992C8EEEC80058E568 /* Autocrypt_iOSTests */,
+				099FF3A32C8EEEC80058E568 /* Autocrypt_iOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		099FF3882C8EEEC60058E568 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				099FF3952C8EEEC80058E568 /* Preview Assets.xcassets in Resources */,
+				099FF3922C8EEEC80058E568 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		099FF3982C8EEEC80058E568 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		099FF3A22C8EEEC80058E568 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		099FF3862C8EEEC60058E568 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				099FF3902C8EEEC60058E568 /* ContentView.swift in Sources */,
+				099FF3D12C8EEF4B0058E568 /* WeatherViewModel.swift in Sources */,
+				099FF3D02C8EEF4B0058E568 /* WeatherData.swift in Sources */,
+				099FF38E2C8EEEC60058E568 /* Autocrypt_iOSApp.swift in Sources */,
+				099FF3D22C8EEF4B0058E568 /* BaseView.swift in Sources */,
+				099FF3D32C8EEF4B0058E568 /* BaseViewController.swift in Sources */,
+				099FF3CE2C8EEF4B0058E568 /* UIFontExtension.swift in Sources */,
+				099FF3CD2C8EEF4B0058E568 /* UIColorExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		099FF3962C8EEEC80058E568 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				099FF39F2C8EEEC80058E568 /* Autocrypt_iOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		099FF3A02C8EEEC80058E568 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				099FF3AB2C8EEEC80058E568 /* Autocrypt_iOSUITestsLaunchTests.swift in Sources */,
+				099FF3A92C8EEEC80058E568 /* Autocrypt_iOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		099FF39C2C8EEEC80058E568 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 099FF3892C8EEEC60058E568 /* Autocrypt_iOS */;
+			targetProxy = 099FF39B2C8EEEC80058E568 /* PBXContainerItemProxy */;
+		};
+		099FF3A62C8EEEC80058E568 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 099FF3892C8EEEC60058E568 /* Autocrypt_iOS */;
+			targetProxy = 099FF3A52C8EEEC80058E568 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		099FF3AC2C8EEEC80058E568 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		099FF3AD2C8EEEC80058E568 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		099FF3AF2C8EEEC80058E568 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Autocrypt_iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 74HVCP3R5F;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dev.Autocrypt-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		099FF3B02C8EEEC80058E568 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Autocrypt_iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 74HVCP3R5F;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dev.Autocrypt-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		099FF3B22C8EEEC80058E568 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 74HVCP3R5F;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dev.Autocrypt-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Autocrypt_iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Autocrypt_iOS";
+			};
+			name = Debug;
+		};
+		099FF3B32C8EEEC80058E568 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 74HVCP3R5F;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dev.Autocrypt-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Autocrypt_iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Autocrypt_iOS";
+			};
+			name = Release;
+		};
+		099FF3B52C8EEEC80058E568 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 74HVCP3R5F;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dev.Autocrypt-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Autocrypt_iOS;
+			};
+			name = Debug;
+		};
+		099FF3B62C8EEEC80058E568 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 74HVCP3R5F;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dev.Autocrypt-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Autocrypt_iOS;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		099FF3852C8EEEC60058E568 /* Build configuration list for PBXProject "Autocrypt_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				099FF3AC2C8EEEC80058E568 /* Debug */,
+				099FF3AD2C8EEEC80058E568 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		099FF3AE2C8EEEC80058E568 /* Build configuration list for PBXNativeTarget "Autocrypt_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				099FF3AF2C8EEEC80058E568 /* Debug */,
+				099FF3B02C8EEEC80058E568 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		099FF3B12C8EEEC80058E568 /* Build configuration list for PBXNativeTarget "Autocrypt_iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				099FF3B22C8EEEC80058E568 /* Debug */,
+				099FF3B32C8EEEC80058E568 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		099FF3B42C8EEEC80058E568 /* Build configuration list for PBXNativeTarget "Autocrypt_iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				099FF3B52C8EEEC80058E568 /* Debug */,
+				099FF3B62C8EEEC80058E568 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		099FF3B72C8EEF1A0058E568 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		099FF3B82C8EEF1B0058E568 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 099FF3B72C8EEF1A0058E568 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		099FF3BA2C8EEF1B0058E568 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 099FF3B72C8EEF1A0058E568 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		099FF3BC2C8EEF1B0058E568 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 099FF3B72C8EEF1A0058E568 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 099FF3822C8EEEC60058E568 /* Project object */;
+}
