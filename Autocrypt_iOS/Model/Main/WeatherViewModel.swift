@@ -6,12 +6,10 @@
 //
 
 import Foundation
-
-import Foundation
 import RxSwift
 import RxRelay
 
-class CoinViewModel {
+class WeatherViewModel {
     // MARK: - Property
     struct Input {
         
@@ -23,4 +21,7 @@ class CoinViewModel {
     
     let input = Input()
     let output = Output()
+    
+    
+    
 }

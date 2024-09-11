@@ -1,24 +1,25 @@
 //
-//  ContentView.swift
+//  SearchWeatherView.swift
 //  Autocrypt_iOS
 //
-//  Created by wjdyukyung on 9/9/24.
+//  Created by wjdyukyung on 9/10/24.
 //
 
 import SwiftUI
+import RxSwift
 
-struct ContentView: View {
+struct SearchWeatherView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("SeacrhView")
         }
         .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    SearchWeatherView()
 }

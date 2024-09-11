@@ -11,7 +11,7 @@ import SwiftUI
 struct Autocrypt_iOSApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainWeatherView()
         }
     }
 }

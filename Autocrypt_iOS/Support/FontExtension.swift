@@ -5,9 +5,9 @@
 //  Created by wjdyukyung on 9/9/24.
 //
 
-import UIKit
+import SwiftUI
 
-extension UIFont {
+extension Font {
     enum PretendardWeight: String {
         case medium, semiBold, bold, extraBold
     }
