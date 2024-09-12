@@ -19,7 +19,9 @@ enum HTTPMethod: String {
 }
 
 final class NetworkManager {
+    public static let instance = NetworkManager()
     private let session: URLSession
+    private let apiUrl = "https://api.openweathermap.org"
     
     init(session: URLSession = .shared) {
         self.session = session
@@ -39,17 +41,20 @@ final class NetworkManager {
             encoding = .url
         }
         
-        guard var urlComponents = URLComponents(string: endpoint.path.stringValue) else {
+        guard var urlComponents = URLComponents(string: apiUrl + endpoint.path.stringValue) else {
             return .error(NetworkError.network)
         }
         
         if let parameters = endpoint.parameters, encoding == .url {
-            urlComponents.queryItems = parameters.map { URLQueryItem(name: $0.key, value: "\($0.value)") }
+            urlComponents.queryItems = parameters.map {
+                return URLQueryItem(name: $0.key, value: "\($0.value)")
+            }
         }
         
         guard let url = urlComponents.url else {
             return .error(NetworkError.network)
         }
+        print("최종 URL: \(url)")
         
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue

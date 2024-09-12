@@ -24,21 +24,18 @@ struct KeyPointsData: Identifiable {
 }
 
 struct MainWeatherView: View {
-    @State private var searchText: String = ""
-    @State private var temperature: String = "22°C"
-    @State private var description: String = "Sunny"
-    @State private var city: String = "San Francisco"
-    @State private var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194),
-        span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-    )
+    @State private var isSearching = false
+    @State private var searchText = ""
+    
+    @StateObject private var viewModel = WeatherViewModel()
+    private let disposeBag = DisposeBag()
     
     let weatherData = [WeatherTempData(time: "오늘", temperature: "20°C", description: "Clear"),
-                       WeatherTempData(time: "수", temperature: "22°C", description: "Sunny"),
-                       WeatherTempData(time: "금", temperature: "24°C", description: "Partly Cloudy"),
-                       WeatherTempData(time: "일", temperature: "26°C", description: "Sunny"),
-                       WeatherTempData(time: "화", temperature: "25°C", description: "Partly Cloudy"),
-                       WeatherTempData(time: "목", temperature: "22°C", description: "Clear")]
+                           WeatherTempData(time: "수", temperature: "22°C", description: "Sunny"),
+                           WeatherTempData(time: "금", temperature: "24°C", description: "Partly Cloudy"),
+                           WeatherTempData(time: "일", temperature: "26°C", description: "Sunny"),
+                           WeatherTempData(time: "화", temperature: "25°C", description: "Partly Cloudy"),
+                           WeatherTempData(time: "목", temperature: "22°C", description: "Clear")]
     
     let keyPointsData = [KeyPointsData(title: "습도", description: "56%", subDescription: nil),
                          KeyPointsData(title: "구름", description: "50%", subDescription: nil),
@@ -46,87 +43,90 @@ struct MainWeatherView: View {
                          KeyPointsData(title: "기압", description: "1030\nhpa", subDescription: nil)]
     
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack(spacing: 16) {
-                searchBar
-                headerView
-                todayWeatherView
-                weekWeatherView
-                weatherLocationView
-                weatherKeyPointsView
+        NavigationStack {
+            ZStack {
+                if viewModel.isLoading {
+                    ProgressView()
+                        .background(Color.mainBlue)
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .foregroundColor(.white)
+                        .edgesIgnoringSafeArea(.all)
+                } else {
+                    if let weatherData = viewModel.weatherData,
+                       let forecastData = viewModel.weatherForecastData {
+                
+                        ScrollView(showsIndicators: false) {
+                            VStack(spacing: 16) {
+                                searchBar
+                                headerView(data: weatherData)
+                                todayWeatherView(data: forecastData)
+                                weekWeatherView(data: forecastData)
+                                weatherLocationView(data: weatherData)
+                                weatherKeyPointsView
+                            }
+                            Spacer(minLength: 40)
+                        }
+                        .padding(.horizontal, 16)
+                        .background(Color.mainBlue)
+                        .edgesIgnoringSafeArea(.bottom) // 하단 안전 영역을 무시하여 배경이 하단까지 차지하도록 설정
+                    }
+                }
             }
-            Spacer(minLength: 40)
+            .onAppear {
+                setWeather()
+            }
         }
-        .padding(.horizontal, 16)
-        .background(Color.mainBlue)
-        .edgesIgnoringSafeArea(.bottom) // 하단 안전 영역을 무시하여 배경이 하단까지 차지하도록 설정
+    }
+    
+    private func setWeather() {
+        viewModel.input.selectCity.accept(nil) // 기본적으로 서울 위치를 선택
     }
     
     private var searchBar: some View {
-        HStack {
-            if searchText.isEmpty {
-                Image(systemName: "magnifyingglass")
-                    .foregroundColor(Color.searchGray)
+        SearchBar(searchText: $searchText, isSearching: $isSearching)
+            .onTapGesture {
+                isSearching = true
             }
-            
-            TextField("", text: $searchText)
-                .placeholder(when: searchText.isEmpty) { // Placeholder를 커스텀 설정
-                    Text("Search").foregroundColor(Color.searchGray)
-                }
-                .padding(8)
-                .foregroundColor(Color.searchGray)
-                .background(Color.clear)
-                .cornerRadius(8)
-            
-            if !searchText.isEmpty {
-                Button(action: {
-                    searchText = ""
-                }) {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundColor(Color.searchGray)
-                }
+            .navigationDestination(isPresented: $isSearching) {
+                SearchWeatherView(searchText: $searchText) // 검색 화면으로 이동
+                    .navigationBarBackButtonHidden(true) // 뒤로 가기 버튼 숨기기
+                    .navigationBarHidden(true)
             }
-        }
-        .padding(.vertical, 8)
-        .padding(.horizontal, 16)
-        .background(Color.subTitleGrayBlue)
-        .cornerRadius(10)
-        .shadow(color: Color.gray.opacity(0.5), radius: 4, x: 0, y: 2)
     }
     
-    private var headerView: some View {
+    private func headerView(data: WeatherData) -> some View {
         VStack() {
             Spacer(minLength: 24)
-            Text(city)
+            Text(data.name)
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
             
-            Text(temperature)
+            Text(data.base)
                 .font(.system(size: 64))
                 .fontWeight(.heavy)
                 .foregroundColor(.white)
             
-            Text(description)
+            Text(data.name)
                 .font(.title)
                 .italic()
                 .foregroundColor(.white)
             
-            Button(action: {
-                // Refresh action here
-            }) {
-                Text("Refresh")
-                    .font(.headline)
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
+//            Button(action: {
+//                // Refresh action here
+//            }) {
+//                Text("Refresh")
+//                    .font(.headline)
+//                    .padding()
+//                    .background(Color.blue)
+//                    .foregroundColor(.white)
+//                    .cornerRadius(10)
+//            }
             .padding(.vertical, 24)
         }
     }
     
-    private var todayWeatherView: some View {
+    private func todayWeatherView(data: WeatherForecastData) -> some View {
         VStack(spacing: 0) {
             Text("돌풍의 풍속은 최대 4m/s~~!!!")
                 .font(.subheadline)
@@ -171,7 +171,7 @@ struct MainWeatherView: View {
         .cornerRadius(10)
     }
     
-    private var weekWeatherView: some View {
+    private func weekWeatherView(data: WeatherForecastData) -> some View {
         VStack(spacing: 0) {
             Text("5일간의 일기예보")
                 .font(.subheadline)
@@ -222,7 +222,7 @@ struct MainWeatherView: View {
         .cornerRadius(10)
     }
     
-    private var weatherLocationView: some View {
+    func weatherLocationView(data: WeatherData) -> some View {
         VStack {
             VStack(spacing: 0) {
                 Text("강수량")
@@ -231,8 +231,9 @@ struct MainWeatherView: View {
                     .padding(.vertical, 8) // 상하 패딩
                     .frame(maxWidth: .infinity, alignment: .leading) // Leading 정렬
                     .background(Color.contentsBlue)
-                
-                Map(coordinateRegion: $region)
+    
+                MapView(coordinate: CLLocationCoordinate2D(latitude: data.coord.lat,
+                                                           longitude: data.coord.lon))
                     .frame(height: 300) // 맵의 높이 설정
                     .cornerRadius(8) // 모서리 둥글게
                 Spacer()
@@ -259,14 +260,16 @@ struct MainWeatherView: View {
                             .frame(width: itemWidth, alignment: .leading)
                             .padding(.leading, 16)
                             .foregroundColor(.white)
-                        
+                        Spacer()
                         Text(item.description)
                             .font(.system(size: 32))
                             .frame(width: itemWidth, alignment: .leading)
                             .padding(.leading, 16)
                             .foregroundColor(.white)
+                        Spacer()
                     }
-                    .frame(width: itemWidth, height: itemWidth)
+                    .padding(.vertical, 16)
+                    .frame(width: itemWidth, height: itemWidth, alignment: .center)
                     .background(Color.contentsBlue)
                     .cornerRadius(10)
                 }

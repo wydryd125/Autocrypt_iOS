@@ -11,6 +11,7 @@ typealias Parameters = [String: Any]
 
 enum Path: ExpressibleByStringLiteral {
     case path(String)
+
     init(stringLiteral value: String) {
         self = .path(value)
     }
@@ -29,7 +30,7 @@ final class Endpoint<Response> {
     let parameters: Parameters?
     let headers: [String: String]?
     let decode: (Data) throws -> Response
-    
+
     init(method: HTTPMethod = .get,
          path: Path,
          parameters: Parameters? = nil,
@@ -42,6 +43,7 @@ final class Endpoint<Response> {
         self.decode = decode
     }
 }
+
 
 extension Endpoint where Response: Decodable {
     convenience init(method: HTTPMethod = .get,

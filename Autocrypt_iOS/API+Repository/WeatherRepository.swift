@@ -8,13 +8,13 @@
 import RxSwift
 
 final class WeatherRepository {
-    private let client: NetworkManager
-    
-    init(client: NetworkManager) {
-        self.client = client
+    private let client = NetworkManager()
+
+    func getWeather(coord: Coordinates) -> Single<WeatherData> {
+        client.request(API.getWeather(coord: coord))
     }
     
-    func fetchWeather(for city: String) -> Single<WeatherData> {
-        client.request(API.weather(city: city))
+    func getForecast(coord: Coordinates) -> Single<WeatherForecastData> {
+        client.request(API.getForecast(coord: coord))
     }
 }
