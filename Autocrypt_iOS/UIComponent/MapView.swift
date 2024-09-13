@@ -23,11 +23,10 @@ class CustomAnnotation: NSObject, MKAnnotation {
 class CustomAnnotationView: MKAnnotationView {
     override var annotation: MKAnnotation? {
         didSet {
-            if annotation is CustomAnnotation {
-                canShowCallout = true
-                image = UIImage(named: "map")
-                centerOffset = CGPoint(x: 0, y: -32)
-            }
+            guard let customAnnotation = annotation as? CustomAnnotation else { return }
+            canShowCallout = true
+            image = UIImage(named: "map")
+            centerOffset = CGPoint(x: 0, y: -32)
         }
     }
 }
@@ -43,12 +42,18 @@ struct MapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            if annotation is MKUserLocation {
+                return nil
+            }
+            
+            // 사용자 정의 애너테이션을 확인합니다.
             if let customAnnotation = annotation as? CustomAnnotation {
                 let view = mapView.dequeueReusableAnnotationView(withIdentifier: "CustomAnnotation") as? CustomAnnotationView
                 ?? CustomAnnotationView(annotation: customAnnotation, reuseIdentifier: "CustomAnnotation")
                 view.annotation = customAnnotation
                 return view
             }
+            
             return nil
         }
     }

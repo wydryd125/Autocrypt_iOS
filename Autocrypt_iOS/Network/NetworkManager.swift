@@ -50,9 +50,15 @@ final class NetworkManager {
             return .error(NetworkError.network)
         }
         
-        if let parameters = endpoint.parameters, encoding == .url {
-            urlComponents.queryItems = parameters.map {
-                return URLQueryItem(name: $0.key, value: "\($0.value)")
+        let apiKeyQueryItem = URLQueryItem(name: "appid", value: "10a177996c09432322a07e4b59cda283")
+        
+        if encoding == .url {
+            if let parameters = endpoint.parameters {
+                urlComponents.queryItems = (parameters.map {
+                    return URLQueryItem(name: $0.key, value: "\($0.value)")
+                } + [apiKeyQueryItem])
+            } else {
+                urlComponents.queryItems = [apiKeyQueryItem]
             }
         }
         
