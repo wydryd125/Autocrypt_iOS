@@ -35,13 +35,13 @@ class CitySearchViewModel {
                 print("검색어'\($0)'")
             })
             .map {
-                //공백을 없애서 검색이 수월하게
+
                 let query = $0.lowercased().replacingOccurrences(of: " ", with: "")
                 
                 // 도시 이름에 쿼리가 포함된 경우 필터링
                 let filterCity = self.repository.cities.filter { city in
                     let cityName = city.name.lowercased().replacingOccurrences(of: " ", with: "")
-                    let contryName = city.country.lowercased().replacingOccurrences(of: " ", with: "")
+//                    let contryName = city.country.lowercased().replacingOccurrences(of: " ", with: "")
                     return cityName.contains(query) // 부분 문자열로 검색
                 }
                 

@@ -23,6 +23,8 @@ struct SearchBar: View {
                 .focused($isFocuse)
                 .padding(8)
                 .cornerRadius(8)
+                .frame(maxWidth: .infinity) // VStack의 너비를 확장하여 전체 영역을 터치 가능하게 함
+                .contentShape(Rectangle()) // VStack 전체를 터치 가능한 영역으로 지정
                 .onTapGesture {
                     isSearching = true // 서치바 터치 시 키보드 올라옴
                 }

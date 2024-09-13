@@ -22,26 +22,29 @@ class WeatherViewModel: ObservableObject {
         let selectCity = BehaviorRelay<City?>(value: nil)
     }
     
-    let input = Input() // Input 인스턴스 생성
+    let input = Input()
     
     // 초기화
     init() {
-        bind() // 데이터 바인딩 설정
+        bind()
     }
     
     // 데이터 바인딩 설정
-    private func bind() {
+    func bind() {
         input.selectCity
+            //.distinctUntilChanged { $0.name == $1.name }
             .flatMapLatest { [weak self] city -> Observable<(WeatherData, WeatherForecastData)> in
                 guard let self = self else { return Observable.empty() }
                 self.isLoading = true // 로딩 시작
-                
+//                
                 let coord: Coordinates
                 if let city = city {
                     coord = city.coord
                 } else {
                     coord = Coordinates(lon: 126.9780, lat: 37.566) // 기본 좌표 (서울)
                 }
+                
+//                print("====", city?.name)
                 
                 // 두 개의 Observable을 병합하여 함께 처리
                 let weatherObservable = self.fetchWeather(coord: coord)

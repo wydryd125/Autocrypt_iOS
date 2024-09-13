@@ -87,7 +87,7 @@ struct SearchWeatherView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .frame(maxWidth: .infinity) // VStack의 너비를 확장하여 전체 영역을 터치 가능하게 함
-                    .contentShape(Rectangle()) // VStack 전체를 터치 가능한 영역으로 지정
+                .contentShape(Rectangle()) // VStack 전체를 터치 가능한 영역으로 지정
                 .onTapGesture {
                     print("서티 탭", city.name)
                     weatherViewModel.input.selectCity.accept(city)
@@ -101,10 +101,6 @@ struct SearchWeatherView: View {
         }
     }
 }
-
-//#Preview {
-//    SearchWeatherView(searchText: searchText)
-//}
 
 extension UIApplication {
     func endEditing() {

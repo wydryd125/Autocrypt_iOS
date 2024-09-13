@@ -26,7 +26,8 @@ class CustomAnnotationView: MKAnnotationView {
         willSet {
             guard let annotation = newValue as? CustomAnnotation else { return }
             canShowCallout = true
-            image = UIImage(systemName: "star.fill") // 커스텀 마커 이미지 설정
+            image = UIImage(named: "map")
+            centerOffset = CGPoint(x: 0, y: -32)
         }
     }
 }
