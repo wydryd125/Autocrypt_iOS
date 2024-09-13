@@ -13,7 +13,7 @@ struct MainWeatherView: View {
     @State private var isSearching = false
     @State private var searchText = ""
     
-    @StateObject private var viewModel = WeatherViewModel()
+    @ObservedObject private var viewModel = WeatherViewModel()
     private let disposeBag = DisposeBag()
     
     var body: some View {
@@ -23,8 +23,8 @@ struct MainWeatherView: View {
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle())
                         .foregroundColor(.white)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity) // 전체 화면을 차지하도록 설정
-                        .background(Color.mainBlue) // 배경 색상 설정
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(Color.lightBlue)
                         .edgesIgnoringSafeArea(.all)
                 } else {
                     if let forecastData = viewModel.weatherForecastData,
@@ -42,8 +42,8 @@ struct MainWeatherView: View {
                             Spacer(minLength: 40)
                         }
                         .padding(.horizontal, 16)
-                        .background(Color.mainBlue)
-                        .edgesIgnoringSafeArea(.bottom) // 하단 안전 영역을 무시하여 배경이 하단까지 차지하도록 설정
+                        .background(Color.lightBlue)
+                        .edgesIgnoringSafeArea(.bottom)
                     }
                 }
             }
@@ -56,8 +56,8 @@ struct MainWeatherView: View {
                 isSearching = true
             }
             .navigationDestination(isPresented: $isSearching) {
-                SearchWeatherView(searchText: $searchText) // 검색 화면으로 이동
-                    .navigationBarBackButtonHidden(true) // 뒤로 가기 버튼 숨기기
+                SearchWeatherView(searchText: $searchText, viewModel:  CitySearchViewModel(viewModel: viewModel))
+                    .navigationBarBackButtonHidden(true)
                     .navigationBarHidden(true)
             }
     }
@@ -65,14 +65,16 @@ struct MainWeatherView: View {
     private func headerView(curDate: WeatherData, data: WeatherForecastData) -> some View {
         VStack() {
             Spacer(minLength: 32)
-            Text(data.getCityName())
+            //api의 cityName과 검색 리스트의 이름이 몇개가 달라 selectCity.name 사용
+            let cityName = viewModel.selectCity.value?.name ?? "Seoul"
+            Text(cityName)
                 .font(.system(size: 40))
                 .foregroundColor(.white)
             
             Spacer(minLength: 24)
             Text(curDate.main.temp.getTemperatureString())
                 .font(.system(size: 64))
-                .fontWeight(.bold)
+                .fontWeight(.medium)
                 .foregroundColor(.white)
             
             Spacer()
@@ -92,30 +94,34 @@ struct MainWeatherView: View {
         VStack(spacing: 0) {
             Text("돌풍의 풍속은 최대 " + data.getWindMaxSpeed() + " 입니다.")
                 .font(.subheadline)
-                .foregroundColor(Color.subTitleGrayBlue)
+                .foregroundColor(.lightGrayBlue)
                 .padding(.vertical, 8)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Color.contentsBlue)
+                .background(Color.midBlue)
             
             Divider()
                 .background(Color.white)
                 .frame(height: 0.4)
             
-            // 콜렉션 뷰
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 4) {
-                    ForEach(data.getDateWeatherList()) { item in
+                    
+                    let today = data.getDateWeatherList()
+                    let tomorrow = data.getDateWeatherList(date: Calendar.current.date(byAdding: .day, value: 1, to: Date()))
+                    let dayAfterTomorrow = data.getDateWeatherList(date: Calendar.current.date(byAdding: .day, value: 1, to: Date()))
+                    
+                    ForEach(today + tomorrow + dayAfterTomorrow) { item in
                         VStack(spacing: 2) {
                             Text(item.date.fullDate().formattedTime())
                                 .font(.subheadline)
                                 .foregroundColor(.white)
                                 .frame(height: 16)
                             
-                            let weather = item.weather[0]
-                            Image(weather.getWeatherImage(id: weather.id))
+                            let id = item.weather[0].id
+                            Image(data.getWeatherImage(id: id))
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 48, height: 48) // 이미지 크기 조절
+                                .frame(width: 40, height: 40)
                             
                             Text(item.main.temp.getTemperatureString())
                                 .font(.subheadline)
@@ -130,7 +136,7 @@ struct MainWeatherView: View {
         }
         .padding(.vertical, 8)
         .padding(.horizontal, 16)
-        .background(Color.contentsBlue) // 전체 배경색 설정
+        .background(Color.midBlue)
         .cornerRadius(10)
     }
     
@@ -138,10 +144,10 @@ struct MainWeatherView: View {
         return VStack(spacing: 0) {
             Text("5일간의 일기예보")
                 .font(.subheadline)
-                .foregroundColor(Color.subTitleGrayBlue)
+                .foregroundColor(.lightGrayBlue)
                 .padding(.vertical, 8) // 상하 패딩
-                .frame(maxWidth: .infinity, alignment: .leading) // Leading 정렬
-                .background(Color.contentsBlue)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(Color.midBlue)
             
             Divider()
                 .background(Color.white)
@@ -174,9 +180,9 @@ struct MainWeatherView: View {
                         .frame(height: 40)
                         
                         if idx < weatherList.count - 2 {
-                            Divider() // 각 셀 사이에 라인 추가
+                            Divider()
                                 .background(Color.white)
-                                .frame(height: 0.4) // 두께 0.4mm
+                                .frame(height: 0.4)
                         }
                     }
                 }
@@ -185,7 +191,7 @@ struct MainWeatherView: View {
         }
         .padding(.vertical, 8)
         .padding(.horizontal, 16)
-        .background(Color.contentsBlue) // 전체 배경색 설정
+        .background(Color.midBlue)
         .cornerRadius(10)
     }
     
@@ -194,21 +200,21 @@ struct MainWeatherView: View {
             VStack(spacing: 0) {
                 Text("강수량")
                     .font(.subheadline)
-                    .foregroundColor(Color.subTitleGrayBlue)
-                    .padding(.vertical, 8) // 상하 패딩
-                    .frame(maxWidth: .infinity, alignment: .leading) // Leading 정렬
-                    .background(Color.contentsBlue)
+                    .foregroundColor(.lightGrayBlue)
+                    .padding(.vertical, 8)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(Color.midBlue)
                 
                 MapView(coordinate: CLLocationCoordinate2D(latitude: data.coord.lat,
                                                            longitude: data.coord.lon))
-                .frame(height: 300) // 맵의 높이 설정
-                .cornerRadius(8) // 모서리 둥글게
+                .frame(height: 300)
+                .cornerRadius(8)
                 Spacer()
             }
         }
         .padding(.vertical, 8)
         .padding(.horizontal, 16)
-        .background(Color.contentsBlue)
+        .background(Color.midBlue)
         .cornerRadius(10)
     }
     
@@ -232,7 +238,7 @@ struct MainWeatherView: View {
                         
                         Text(item.description)
                             .font(.system(size: 32))
-                            .frame(width: itemWidth, alignment: .leading) // 수평 정렬은 leading
+                            .frame(width: itemWidth, alignment: .leading)
                             .padding(.leading, 16)
                             .foregroundColor(.white)
                         
@@ -248,12 +254,12 @@ struct MainWeatherView: View {
                     }
                     .padding(.vertical, 16)
                     .frame(width: itemWidth, height: itemWidth, alignment: .center)
-                    .background(Color.contentsBlue)
+                    .background(Color.midBlue)
                     .cornerRadius(10)
                 }
             }
         }
-        .frame(height: UIScreen.main.bounds.width - 36) // `GeometryReader`의 높이 설정
+        .frame(height: UIScreen.main.bounds.width - 36)
     }
 }
 

@@ -1,0 +1,11 @@
+//
+//  Config.xcconfig
+//  Autocrypt_iOS
+//
+//  Created by wjdyukyung on 9/14/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+APIKey = "10a177996c09432322a07e4b59cda283"

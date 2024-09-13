@@ -19,7 +19,6 @@
 		097035912C91D6D8000A5A48 /* CityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097035902C91D6D8000A5A48 /* CityRepository.swift */; };
 		097035932C91D7D0000A5A48 /* CitySearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097035922C91D7D0000A5A48 /* CitySearchViewModel.swift */; };
 		097035952C92DB33000A5A48 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097035942C92DB33000A5A48 /* MapView.swift */; };
-		097035972C931882000A5A48 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 097035962C931882000A5A48 /* Property List.plist */; };
 		097035992C933A06000A5A48 /* WeatherForecastData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097035982C933A06000A5A48 /* WeatherForecastData.swift */; };
 		099FF38E2C8EEEC60058E568 /* Autocrypt_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FF38D2C8EEEC60058E568 /* Autocrypt_iOSApp.swift */; };
 		099FF3902C8EEEC60058E568 /* MainWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FF38F2C8EEEC60058E568 /* MainWeatherView.swift */; };
@@ -32,7 +31,6 @@
 		099FF3BB2C8EEF1B0058E568 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 099FF3BA2C8EEF1B0058E568 /* RxRelay */; };
 		099FF3BD2C8EEF1B0058E568 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 099FF3BC2C8EEF1B0058E568 /* RxSwift */; };
 		099FF3CD2C8EEF4B0058E568 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FF3BE2C8EEF4B0058E568 /* ColorExtension.swift */; };
-		099FF3CE2C8EEF4B0058E568 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FF3BF2C8EEF4B0058E568 /* FontExtension.swift */; };
 		099FF3D02C8EEF4B0058E568 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FF3C32C8EEF4B0058E568 /* WeatherData.swift */; };
 		099FF3D12C8EEF4B0058E568 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FF3C42C8EEF4B0058E568 /* WeatherViewModel.swift */; };
 		09E9BA252C940DE600475840 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E9BA242C940DE600475840 /* DateExtension.swift */; };
@@ -69,7 +67,6 @@
 		097035902C91D6D8000A5A48 /* CityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRepository.swift; sourceTree = "<group>"; };
 		097035922C91D7D0000A5A48 /* CitySearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchViewModel.swift; sourceTree = "<group>"; };
 		097035942C92DB33000A5A48 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		097035962C931882000A5A48 /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		097035982C933A06000A5A48 /* WeatherForecastData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastData.swift; sourceTree = "<group>"; };
 		099FF38A2C8EEEC60058E568 /* Autocrypt_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Autocrypt_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		099FF38D2C8EEEC60058E568 /* Autocrypt_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autocrypt_iOSApp.swift; sourceTree = "<group>"; };
@@ -82,11 +79,11 @@
 		099FF3A82C8EEEC80058E568 /* Autocrypt_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autocrypt_iOSUITests.swift; sourceTree = "<group>"; };
 		099FF3AA2C8EEEC80058E568 /* Autocrypt_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autocrypt_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		099FF3BE2C8EEF4B0058E568 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
-		099FF3BF2C8EEF4B0058E568 /* FontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		099FF3C32C8EEF4B0058E568 /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		099FF3C42C8EEF4B0058E568 /* WeatherViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		09E9BA242C940DE600475840 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		09E9BA262C94140D00475840 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		09E9BA2D2C94AE3000475840 /* Autocrypt-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Autocrypt-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +163,6 @@
 		099FF3812C8EEEC60058E568 = {
 			isa = PBXGroup;
 			children = (
-				097035962C931882000A5A48 /* Property List.plist */,
 				099FF38C2C8EEEC60058E568 /* Autocrypt_iOS */,
 				099FF39D2C8EEEC80058E568 /* Autocrypt_iOSTests */,
 				099FF3A72C8EEEC80058E568 /* Autocrypt_iOSUITests */,
@@ -187,6 +183,7 @@
 		099FF38C2C8EEEC60058E568 /* Autocrypt_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				09E9BA2D2C94AE3000475840 /* Autocrypt-iOS-Info.plist */,
 				099FF3932C8EEEC80058E568 /* Preview Content */,
 				099FF38D2C8EEEC60058E568 /* Autocrypt_iOSApp.swift */,
 				099FF3912C8EEEC80058E568 /* Assets.xcassets */,
@@ -230,7 +227,6 @@
 			children = (
 				097035872C91BF21000A5A48 /* Json */,
 				099FF3BE2C8EEF4B0058E568 /* ColorExtension.swift */,
-				099FF3BF2C8EEF4B0058E568 /* FontExtension.swift */,
 				097035852C90B6C4000A5A48 /* ViewExtention.swift */,
 				09E9BA242C940DE600475840 /* DateExtension.swift */,
 				09E9BA262C94140D00475840 /* DoubleExtension.swift */,
@@ -241,8 +237,8 @@
 		099FF3C52C8EEF4B0058E568 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				097035742C90313B000A5A48 /* Search */,
 				097035732C903128000A5A48 /* Main */,
+				097035742C90313B000A5A48 /* Search */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -379,7 +375,6 @@
 			files = (
 				099FF3952C8EEEC80058E568 /* Preview Assets.xcassets in Resources */,
 				099FF3922C8EEEC80058E568 /* Assets.xcassets in Resources */,
-				097035972C931882000A5A48 /* Property List.plist in Resources */,
 				0970358B2C91BF9E000A5A48 /* citylist.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,7 +413,6 @@
 				0970358F2C91D680000A5A48 /* CityData.swift in Sources */,
 				097035952C92DB33000A5A48 /* MapView.swift in Sources */,
 				099FF38E2C8EEEC60058E568 /* Autocrypt_iOSApp.swift in Sources */,
-				099FF3CE2C8EEF4B0058E568 /* FontExtension.swift in Sources */,
 				097035822C903D44000A5A48 /* WeatherAPI.swift in Sources */,
 				0970357C2C903691000A5A48 /* NetworkManager.swift in Sources */,
 				099FF3CD2C8EEF4B0058E568 /* ColorExtension.swift in Sources */,
@@ -591,6 +585,7 @@
 				DEVELOPMENT_TEAM = 74HVCP3R5F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Autocrypt-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -620,6 +615,7 @@
 				DEVELOPMENT_TEAM = 74HVCP3R5F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Autocrypt-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

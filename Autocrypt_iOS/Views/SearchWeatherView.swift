@@ -10,14 +10,11 @@ import RxSwift
 
 struct SearchWeatherView: View {
     @Binding var searchText: String
-    @FocusState private var isFocuse: Bool
+    @FocusState private var isFocused: Bool
     @Environment(\.presentationMode) var presentationMode
     @State private var filteredCities = [City]()
     
-    private let viewModel = CitySearchViewModel()
-    private let weatherViewModel = WeatherViewModel()
-    //이거 수정wjd
-    
+    @ObservedObject var viewModel: CitySearchViewModel
     private let disposeBag = DisposeBag()
     
     var body: some View {
@@ -29,11 +26,10 @@ struct SearchWeatherView: View {
             Spacer(minLength: 40)
         }
         .padding(.horizontal, 16)
-        .background(Color.searchBlue)
+        .background(Color.deepBlue)
         .edgesIgnoringSafeArea(.bottom)
         .onAppear {
-            // View가 나타날 때 filterCitiesRelay를 구독합니다.
-            viewModel.output.filterCitiesRelay
+            viewModel.filterCitiesRelay
                 .asObservable()
                 .subscribe(onNext: { cities in
                     self.filteredCities = cities
@@ -49,22 +45,23 @@ struct SearchWeatherView: View {
         VStack {
             HStack {
                 Button(action: {
+                    searchText.removeAll()
                     presentationMode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "chevron.left")
                         .font(.system(size: 16))
-                        .foregroundColor(.subTitleGrayBlue)
+                        .foregroundColor(.midGrayBlue)
                         .padding(.trailing, 8)
                 }
                 
                 SearchBar(searchText: $searchText, isSearching: .constant(true))
-                    .focused($isFocuse)
+                    .focused($isFocused)
                     .onChange(of: searchText) { _, newValue in
-                        viewModel.input.searchQuery.accept(searchText.lowercased())
+                        viewModel.searchQuery.accept(newValue)
                     }
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.04) {
-                            isFocuse = true
+                            isFocused = true
                         }
                     }
             }
@@ -86,11 +83,11 @@ struct SearchWeatherView: View {
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                .frame(maxWidth: .infinity) // VStack의 너비를 확장하여 전체 영역을 터치 가능하게 함
-                .contentShape(Rectangle()) // VStack 전체를 터치 가능한 영역으로 지정
+                .frame(maxWidth: .infinity)
+                .contentShape(Rectangle())
                 .onTapGesture {
-                    print("서티 탭", city.name)
-                    weatherViewModel.input.selectCity.accept(city)
+                    viewModel.selectCity.accept(city)
+                    searchText.removeAll()
                     presentationMode.wrappedValue.dismiss()
                 }
                 

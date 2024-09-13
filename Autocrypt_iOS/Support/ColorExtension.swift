@@ -22,13 +22,10 @@ extension Color {
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
     
-    static let mainBlue = Color(red: 114, green: 145, blue: 192)
-    static let contentsBlue = Color(red: 87, green: 124, blue: 183)
-    static let searchBlue = Color(red: 88, green: 118, blue: 163)
-    static let subTitleGrayBlue = Color(red: 172, green: 185, blue: 204)
-    static let searchGray = Color(red: 102, green: 112, blue: 129)
-    static let searchBgGray = Color(red: 137, green: 159, blue: 190)
-    static let lineGray = Color(red: 137, green: 159, blue: 190)
-    
+    static let lightBlue = Color(red: 122, green: 160, blue: 208)
+    static let midBlue = Color(red: 105, green: 140, blue: 199)
+    static let deepBlue = Color(red: 87, green: 124, blue: 183)
+    static let midGrayBlue = Color(red: 179, green: 194, blue: 212)
+    static let lightGrayBlue = Color(red: 199, green: 214, blue: 222)
 }
 

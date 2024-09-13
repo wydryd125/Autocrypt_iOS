@@ -7,7 +7,6 @@
 
 import Foundation
 
-// 도시 정보를 담을 구조체
 struct City: Identifiable, Codable {
     let id: Int
     let name: String

@@ -18,6 +18,11 @@ enum HTTPMethod: String {
     case delete = "DELETE"
 }
 
+enum NetworkError: Error {
+    case network
+    case decoding
+}
+
 final class NetworkManager {
     public static let instance = NetworkManager()
     private let session: URLSession
@@ -54,7 +59,6 @@ final class NetworkManager {
         guard let url = urlComponents.url else {
             return .error(NetworkError.network)
         }
-        print("최종 URL: \(url)")
         
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
@@ -90,65 +94,6 @@ final class NetworkManager {
                 return .error(networkError)
             }
     }
-    
-    func requestt<Response>(_ endpoint: Endpoint<Response>) -> Single<Response> {
-        let encoding: Encoding = endpoint.method == .post || endpoint.method == .put || endpoint.method == .patch ? .json : .url
-        
-        guard var urlComponents = URLComponents(string: apiUrl + endpoint.path.stringValue) else {
-            return .error(NetworkError.network)
-        }
-        
-        if let parameters = endpoint.parameters, encoding == .url {
-            urlComponents.queryItems = parameters.map {
-                URLQueryItem(name: $0.key, value: "\($0.value)")
-            }
-        }
-        
-        guard let url = urlComponents.url else {
-            return .error(NetworkError.network)
-        }
-        print("최종 URL: \(url)")
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = endpoint.method.rawValue
-        
-        if let headers = endpoint.headers {
-            request.allHTTPHeaderFields = headers
-        }
-        
-        if let parameters = endpoint.parameters, encoding == .json {
-            request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])
-        }
-        
-        return session.fetchData(request: request)
-            .map { data in
-                do {
-                    return try endpoint.decode(data)
-                } catch {
-                    throw NetworkError.decoding
-                }
-            }
-            .catch { error in
-                let networkError: NetworkError
-                if let urlError = error as? URLError {
-                    switch urlError.code {
-                    case .notConnectedToInternet:
-                        networkError = .network
-                    default:
-                        networkError = .network
-                    }
-                } else {
-                    networkError = .network
-                }
-                return .error(networkError)
-            }
-    }
-
-}
-
-enum NetworkError: Error {
-    case network
-    case decoding
 }
 
 extension URLSession {
@@ -164,6 +109,7 @@ extension URLSession {
                 }
             }
             task.resume()
+            
             return Disposables.create {
                 task.cancel()
             }
