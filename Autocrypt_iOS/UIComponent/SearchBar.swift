@@ -26,9 +26,6 @@ struct SearchBar: View {
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
                 .contentShape(Rectangle())
-                .onTapGesture {
-                    isSearching = true
-                }
             
             if !searchText.isEmpty && isFocuse {
                 Button(action: {
