@@ -24,7 +24,7 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "E"
         dateFormatter.locale =  Locale(identifier: "ko_KR")
-        return dateFormatter.string(from: self)
+        return Calendar.current.isDateInToday(self) ? "오늘" : dateFormatter.string(from: self)
     }
 }
 

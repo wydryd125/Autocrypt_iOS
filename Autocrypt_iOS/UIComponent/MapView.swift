@@ -25,7 +25,12 @@ class CustomAnnotationView: MKAnnotationView {
         didSet {
             guard let customAnnotation = annotation as? CustomAnnotation else { return }
             canShowCallout = true
-            image = UIImage(named: "map")
+            if let image = UIImage(named: "map") {
+                self.image = image
+            } else {
+                self.image = nil
+            }
+            
             centerOffset = CGPoint(x: 0, y: -32)
         }
     }

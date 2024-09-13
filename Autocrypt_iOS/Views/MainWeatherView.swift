@@ -108,9 +108,8 @@ struct MainWeatherView: View {
                     
                     let today = data.getDateWeatherList()
                     let tomorrow = data.getDateWeatherList(date: Calendar.current.date(byAdding: .day, value: 1, to: Date()))
-                    let dayAfterTomorrow = data.getDateWeatherList(date: Calendar.current.date(byAdding: .day, value: 1, to: Date()))
-                    
-                    ForEach(today + tomorrow + dayAfterTomorrow) { item in
+                
+                    ForEach(today + tomorrow) { item in
                         VStack(spacing: 2) {
                             Text(item.date.fullDate().formattedTime())
                                 .font(.subheadline)

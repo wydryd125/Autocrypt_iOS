@@ -36,35 +36,37 @@ struct SearchWeatherView: View {
                 })
                 .disposed(by: disposeBag)
         }
+        .gesture(DragGesture().onChanged { _ in
+            isFocused = false
+        })
         .onTapGesture {
             UIApplication.shared.endEditing()
         }
+        .scrollDismissesKeyboard(.immediately)
     }
     
     private var searchBar: some View {
-        VStack {
-            HStack {
-                Button(action: {
-                    searchText.removeAll()
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Image(systemName: "chevron.left")
-                        .font(.system(size: 16))
-                        .foregroundColor(.midGrayBlue)
-                        .padding(.trailing, 8)
-                }
-                
-                SearchBar(searchText: $searchText, isSearching: .constant(true))
-                    .focused($isFocused)
-                    .onChange(of: searchText) { _, newValue in
-                        viewModel.searchQuery.accept(newValue)
-                    }
-                    .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.04) {
-                            isFocused = true
-                        }
-                    }
+        HStack {
+            Button(action: {
+                searchText.removeAll()
+                presentationMode.wrappedValue.dismiss()
+            }) {
+                Image(systemName: "chevron.left")
+                    .font(.system(size: 16))
+                    .foregroundColor(.midGrayBlue)
+                    .padding(.trailing, 8)
             }
+            
+            SearchBar(searchText: $searchText, isSearching: .constant(true))
+                .focused($isFocused)
+                .onChange(of: searchText) { _, newValue in
+                    viewModel.searchQuery.accept(newValue)
+                }
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.04) {
+                        isFocused = true
+                    }
+                }
         }
     }
     
